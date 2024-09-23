@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <PackageId>Microsoft.Authentication.AdoPat</PackageId>
-    <TargetFrameworks>net6.0</TargetFrameworks>
+    <TargetFrameworks>net8.0</TargetFrameworks>
     <RootNamespace>Microsoft.Authentication.AdoPat</RootNamespace>
   </PropertyGroup>
 

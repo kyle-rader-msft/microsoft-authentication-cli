@@ -10,10 +10,15 @@
     <PublishReadyToRun>true</PublishReadyToRun>
     <PublishReadyToRunShowWarnings>true</PublishReadyToRunShowWarnings>
     <PublishTrimmed>true</PublishTrimmed>
+    <!-- Dotnet 8.0 breaking change
+     https://learn.microsoft.com/en-us/dotnet/core/compatibility/serialization/8.0/publishtrimmed
+     Todo: Remove once Lasso telemetry no longer requires this
+     -->
+    <JsonSerializerIsReflectionEnabledByDefault>true</JsonSerializerIsReflectionEnabledByDefault>
   </PropertyGroup>
 
   <PropertyGroup>
-    <TargetFramework>net6.0</TargetFramework>
+    <TargetFramework>net8.0</TargetFramework>
     <!-- Output an executable -->
     <PackageId>microsoft.authentication.azureauth</PackageId>
     <OutputType>Exe</OutputType>
@@ -46,5 +51,9 @@
   <ItemGroup Condition="$([MSBuild]::IsOSPlatform('Windows'))">
     <!-- Needed for Web mode on Windows -->
     <TrimmerRootAssembly Include="System.Private.CoreLib" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <TrimmerRootAssembly Include="McMaster.Extensions.CommandLineUtils" />
   </ItemGroup>
 </Project>
