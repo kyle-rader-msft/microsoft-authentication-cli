@@ -9,12 +9,12 @@
   <PropertyGroup Condition="'$(Configuration)'=='release'">
     <PublishReadyToRun>true</PublishReadyToRun>
     <PublishReadyToRunShowWarnings>true</PublishReadyToRunShowWarnings>
-    <PublishTrimmed>true</PublishTrimmed>
+    <!-- <PublishTrimmed>true</PublishTrimmed> -->
     <!-- Dotnet 8.0 breaking change
      https://learn.microsoft.com/en-us/dotnet/core/compatibility/serialization/8.0/publishtrimmed
      Todo: Remove once Lasso telemetry no longer requires this
      -->
-    <JsonSerializerIsReflectionEnabledByDefault>true</JsonSerializerIsReflectionEnabledByDefault>
+    <!-- <JsonSerializerIsReflectionEnabledByDefault>true</JsonSerializerIsReflectionEnabledByDefault> -->
   </PropertyGroup>
 
   <PropertyGroup>
@@ -48,12 +48,12 @@
   </ItemGroup>
 
   <!-- Assemblies we need to manually mark as roots so they are not trimmed. -->
-  <ItemGroup Condition="$([MSBuild]::IsOSPlatform('Windows'))">
-    <!-- Needed for Web mode on Windows -->
+  <!-- <ItemGroup Condition="$([MSBuild]::IsOSPlatform('Windows'))">
+    Needed for Web mode on Windows
     <TrimmerRootAssembly Include="System.Private.CoreLib" />
-  </ItemGroup>
+  </ItemGroup> -->
 
-  <ItemGroup>
+  <!-- <ItemGroup>
     <TrimmerRootAssembly Include="McMaster.Extensions.CommandLineUtils" />
-  </ItemGroup>
+  </ItemGroup> -->
 </Project>
